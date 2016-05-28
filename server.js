@@ -1,10 +1,13 @@
-var express = require('express');
+var fs = require('fs');
+var http = require('http');
+var https = require('https');
+var privateKey  = fs.readFileSync('./key.pem', 'utf8');
+var certificate = fs.readFileSync('./cert.pem', 'utf8');
 var path = require('path');
-var webpack = require('webpack');
-var app = express();
 
-var isDevelopment = (process.env.NODE_ENV !== 'production');
-var static_path = path.join(__dirname, 'public');
+var credentials = {key: privateKey, cert: certificate};
+var express = require('express');
+var app = express();
 
 app.use(function(request, response, next) {
   if (path.extname(request.path).length > 0) {
@@ -15,26 +18,13 @@ app.use(function(request, response, next) {
   }
 });
 
-app.use(express.static(static_path))
+app.use(express.static('./dist'))
   .get('/', function (req, res) {
-    res.sendFile('src/index.html', {
-      root: static_path
+    res.sendFile('index.html', {
+      root: '.'
     });
-  }).listen(process.env.PORT || 8080, function (err) {
-    if (err) { console.log(err) };
-    console.log('Listening at localhost:8080');
-
 });
 
-if (isDevelopment) {
-  var config = require('./webpack-dev-server.config');
-  var WebpackDevServer = require('webpack-dev-server');
+var httpsServer = https.createServer(credentials, app);
 
-  new WebpackDevServer(webpack(config), {
-    publicPath: config.output.publicPath,
-    hot: true
-  }).listen(3000, 'localhost', function (err, result) {
-    if (err) { console.log(err) }
-    console.log('Listening at localhost:3000');
-  });
-}
+httpsServer.listen(8080);

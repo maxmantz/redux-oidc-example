@@ -1,9 +1,13 @@
 import { routerReducer } from 'react-router-redux';
 import { combineReducers } from 'redux';
+import { reducer as oidcReducer } from 'redux-oidc';
+
+console.log('reducer', oidcReducer);
 
 const reducer = combineReducers(
   {
-    routing: routerReducer
+    routing: routerReducer,
+    oidc: oidcReducer,
   }
 );
 

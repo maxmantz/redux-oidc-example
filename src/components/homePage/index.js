@@ -1,7 +1,9 @@
 import React from 'react';
 import { createTokenManager } from 'redux-oidc';
 import { createTokenManagerConfig } from '../../helpers';
-import radium from 'radium';
+import { connect } from 'react-redux';
+import LoginPage from '../loginPage';
+import MainPage from '../mainPage';
 
 class HomePage extends React.Component {
   get infoPage() {
@@ -11,12 +13,22 @@ class HomePage extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        { this.infoPage }
-      </div>
-    )
+    const { user } = this.props;
+
+    return !user || user.expired ? <LoginPage/> : <MainPage />;
   }
 }
 
-export default radium(HomePage);
+function mapStateToProps(state) {
+  return {
+    user: state.oidc.user
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    dispatch
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

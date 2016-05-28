@@ -1,9 +1,24 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { CallbackComponent } from 'redux-oidc';
-import { createTokenManagerConfig } from '../../helpers';
+import { push } from 'react-router-redux';
 
-export default function CallbackPage(props) {
-  return (
-    <CallbackComponent config={createTokenManagerConfig()} />
-  );
+class CallbackPage extends React.Component {
+  successCallback = () => {
+    this.props.dispatch(push('/'));
+  }
+
+  render() {
+    return (
+      <CallbackComponent successCallback={this.successCallback.bind(this)} />
+    );
+  }
 }
+
+function mapDispatchToProps(dispatch) {
+  return {
+    dispatch
+  };
+}
+
+export default connect(null, mapDispatchToProps)(CallbackPage);

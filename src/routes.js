@@ -13,7 +13,6 @@ export default function Routes(props) {
     <Router history={history}>
       <Route path="/" component={HomePage}/>
       <Route path="/callback" component={CallbackPage} />
-      <Route path="/login" component={LoginPage} />
     </Router>
   );
 }

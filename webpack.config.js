@@ -1,22 +1,38 @@
 var path = require('path');
 var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
   entry: {
-    app: ['./src/index.js']
+    app: ['./src/index.js'],
+    silentRenew: ['./silent_renew/index.js']
   },
   output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'redux-oidc-example.js'
+    path: './dist',
+    filename: '[name].js',
+    chunkFilename: '[name].chunk.js',
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      minimize: true,
-      compress: {
-        warnings: false
-      }
-    })
+    new webpack.NoErrorsPlugin(),
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+      chunks: ['app'],
+      filename: 'index.html',
+    }),
+    new HtmlWebpackPlugin({
+      template: './silent_renew/silent_renew.html',
+      chunks: ['silentRenew'],
+      filename: 'silent_renew.html',
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'app',
+      chunks: ['commons'],
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'silentRenew',
+      chunks: ['commons'],
+    }),
   ],
   resolve: {
     extensions: ['', '.js', '.jsx']
@@ -25,12 +41,15 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx?$/,
-        loader: 'babel',
+        loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
           presets: ['es2015', 'react', 'stage-0']
         }
       }
     ]
-  }
+  },
+  babelQuery: {
+    presets: ['react-hmre'],
+  },
 }
