@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { userManager } from '../../store';
+import userManager from '../../utils/userManager';
 import { loadSubscriptionsStart } from '../../actions';
 import ChannelInfo from '../channelInfo';
 
@@ -22,6 +22,7 @@ class MainPage extends React.Component {
     userManager.signoutRedirect();
   }
 
+  // the channels list
   get channels() {
     const { channels } = this.props;
     return (
@@ -39,12 +40,12 @@ class MainPage extends React.Component {
     return (
       <div style={styles.root}>
         <div style={styles.title}>
-          <h3>Welcome, {user.profile.name}!</h3>
-          <p>Your 5 recent YouTube subscriptions:</p>
+          <h3>Welcome, {user ? user.profile.name : 'Mister Unknown'}!</h3>
+          <p>Your 5 most recent YouTube channel subscriptions:</p>
         </div>
-        { channels.length > 0 ? this.channels: <span>You have no subscriptions.</span>}
-        <button style={styles.button} onClick={this.showUserInfoButtonClick}>Show user info</button>
-        <button style={styles.button} onClick={this.onLogoutButtonClicked}>Logout</button>
+        { channels.length > 0 ? this.channels: <i>You have no subscriptions.</i>}
+        <button onClick={this.showUserInfoButtonClick}>Show user info</button>
+        <button onClick={this.onLogoutButtonClicked}>Logout</button>
       </div>
     );
   }
@@ -63,9 +64,6 @@ const styles = {
   },
   li: {
     display: 'flex',
-  },
-  button: {
-    flexShrink: 1
   }
 }
 

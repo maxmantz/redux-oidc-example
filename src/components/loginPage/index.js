@@ -1,5 +1,5 @@
 import React from 'react';
-import { userManager } from '../../store';
+import userManager from '../../utils/userManager';
 
 class LoginPage extends React.Component {
   onLoginButtonClick = (event) => {
@@ -12,7 +12,7 @@ class LoginPage extends React.Component {
       <div style={styles.root}>
         <h3>Welcome to the redux-oidc sample app!</h3>
         <p>Please log in to continue</p>
-        <button onClick={this.onLoginButtonClick}>Login</button>
+        <button onClick={this.onLoginButtonClick}>Login with Google</button>
       </div>
     );
   }

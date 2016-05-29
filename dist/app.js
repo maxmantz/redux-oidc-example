@@ -8550,7 +8550,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
 	// you'll need this for older browsers
-	__webpack_require__(583).polyfill();
+	__webpack_require__(584).polyfill();
 	
 	var styles = {
 	  root: {
@@ -28764,7 +28764,11 @@
 	
 	var _store2 = _interopRequireDefault(_store);
 	
-	var _root = __webpack_require__(582);
+	var _userManager = __webpack_require__(576);
+	
+	var _userManager2 = _interopRequireDefault(_userManager);
+	
+	var _root = __webpack_require__(583);
 	
 	var _root2 = _interopRequireDefault(_root);
 	
@@ -28776,7 +28780,7 @@
 	    { store: _store2['default'] },
 	    _react2['default'].createElement(
 	      _reduxOidc.OidcProvider,
-	      { store: _store2['default'], userManager: _store.userManager },
+	      { store: _store2['default'], userManager: _userManager2['default'] },
 	      _react2['default'].createElement(
 	        _root2['default'],
 	        null,
@@ -30371,15 +30375,15 @@
 	
 	var _reactRouterRedux = __webpack_require__(552);
 	
-	var _homePage = __webpack_require__(576);
+	var _homePage = __webpack_require__(577);
 	
 	var _homePage2 = _interopRequireDefault(_homePage);
 	
-	var _callback = __webpack_require__(581);
+	var _callback = __webpack_require__(582);
 	
 	var _callback2 = _interopRequireDefault(_callback);
 	
-	var _loginPage = __webpack_require__(578);
+	var _loginPage = __webpack_require__(579);
 	
 	var _loginPage2 = _interopRequireDefault(_loginPage);
 	
@@ -35810,7 +35814,6 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.userManager = undefined;
 	
 	var _redux = __webpack_require__(475);
 	
@@ -35832,54 +35835,14 @@
 	
 	var _reducer2 = _interopRequireDefault(_reducer);
 	
+	var _userManager = __webpack_require__(576);
+	
+	var _userManager2 = _interopRequireDefault(_userManager);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var userManagerConfig = {
-	  client_id: '581912277515-8pqeloei552og7pa13iufb57iug8vu9k.apps.googleusercontent.com',
-	  redirect_uri: window.location.protocol + '//' + window.location.hostname + ':' + window.location.port + '/callback',
-	  response_type: 'token id_token',
-	  scope: 'openid profile https://www.googleapis.com/auth/youtube.readonly',
-	  authority: 'https://accounts.google.com',
-	  silent_redirect_uri: window.location.protocol + '//' + window.location.hostname + ':' + window.location.port + '/silent_renew.html',
-	  automaticSilentRenew: true,
-	  filterProtocolClaims: true,
-	  loadUserInfo: true,
-	  metadata: {
-	    issuer: "https://accounts.google.com",
-	    authorization_endpoint: "https://accounts.google.com/o/oauth2/v2/auth",
-	    token_endpoint: "https://www.googleapis.com/oauth2/v4/token",
-	    userinfo_endpoint: "https://www.googleapis.com/oauth2/v3/userinfo",
-	    jwks_uri: "https://www.googleapis.com/oauth2/v3/certs",
-	    // end_session_endpoint: "https://accounts.google.com/o/oauth2/revoke",
-	    signingKeys: [{
-	      "kty": "RSA",
-	      "alg": "RS256",
-	      "use": "sig",
-	      "kid": "ba1b3ecbf5f87c50b6ef15f1bb50a8c13f17a497",
-	      "n": "oyMZAGpqaNdfSdWlUb8zDQab8Z99rt01UK5A4g6eMWrV7f-o2HopdZZtQebMkQ5UYMxFnjBoowwiVKaW_EWc3DCs6wwiYposR18kLZht2NKxRd9VykfsQLoxuC8fZVWQQ5c3Fznd-cRvPfbdZkdRj1Y_vkgzZQnK_Q5gcUAYsLJZodL_jTc9hRjys2F5wwt-npPpa1pMxSLY_IfCnrW7ucnvQAgCdXedI2D_s2Y-Wrks9kj0zwe31GTFI2ZUOQwdPafY982oGiO15l5fwrq-xjNxFo8JIfHBzPr3JVkWsPETmS74DJeKo172d6SccNsyNnBIUBlqxYt6IeNpktIwCw",
-	      "e": "AQAB"
-	    }, {
-	      "kty": "RSA",
-	      "alg": "RS256",
-	      "use": "sig",
-	      "kid": "93d45f7c2d58c6eaba22373bf1adcdbe9ab49af8",
-	      "n": "wUSUDL3sRKAkDh9LwfGVdi_shYDB0bD23YQnVqUaKlLk0YHOuo7iS5CfQAdCnS_w-fZKTui2yGlCu4oVhVHgnTkAU3cWRhyQNjJxG_tfFQg2sID2UaCNCq7jMHTIbAsf4MmDgZ6HOpiKsafMGUfWLsJc0Loe0QJnIWywSPnHmcXjs9kWExp29Xu1ka7rGK5rsDUH39sfi_Px2IeqDPdOFqUDRLCO9goaKE-IlCbZlgv2lnAoLRkmSVu7IXyNRjQPawIfBCLw91PxYMDqBcnTMf1fHAlnXzPy68B_aodv6PgPg5li0Y7aTDiiRmbyQVl-w7MCqAD1dxxqapbIqhmmhQ",
-	      "e": "AQAB"
-	    }, {
-	      "kty": "RSA",
-	      "alg": "RS256",
-	      "use": "sig",
-	      "kid": "df6dbd2fe4ef7f280fd258f4f9ba4d0c47084e45",
-	      "n": "vyM4hMZhtQM6hegDxcW1WMETR1d4ddtO8KZYrP86ax75L6TKKKfFSkIA0xGAtmnyxjGlfWi02DAj_giqSv2LSK5Ufmo79hOyQUgVbEyYgVkSFohYvBTAdY9lbIWJuzAxjplX7g3psrpv4sNdBdp1R3xvcNOiGBBUsuQJ7pZbez_wm3an07Gc2wfWNZpDYJFlhzusqRVCX4DY4OR_I1Fc9a97PRfKlKyjHzBT208YRap_IypSZrN5cQZ2ikAmPZDjX17ozaAhlXbPW-_NV31R6FmdhtH4BYz-uHSBvWvZWnUCQlk4PbfAJgf1pCNsP-qZoGtVXenyBF6nEjXnIlR7Hw",
-	      "e": "AQAB"
-	    }]
-	  }
-	};
-	
-	var userManager = exports.userManager = (0, _reduxOidc.createUserManager)(userManagerConfig);
-	
-	// create the middleware with the userManager, nothing for shouldValidate, and don't trigger redirection
-	var oidcMiddleware = (0, _reduxOidc2['default'])(userManager, null, false);
+	// create the middleware with the userManager, null for shouldValidate, and triggerAuthFlow false
+	var oidcMiddleware = (0, _reduxOidc2['default'])(_userManager2['default'], null, false);
 	
 	var sagaMiddleware = (0, _reduxSaga2['default'])();
 	
@@ -38331,6 +38294,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
+	// a request helper which reads the access_token from the redux state and passes it in its HTTP request
 	function apiRequest(url) {
 	  var method = arguments.length <= 1 || arguments[1] === undefined ? 'GET' : arguments[1];
 	
@@ -38430,6 +38394,65 @@
 	  value: true
 	});
 	
+	var _reduxOidc = __webpack_require__(490);
+	
+	var userManagerConfig = {
+	  client_id: '581912277515-8pqeloei552og7pa13iufb57iug8vu9k.apps.googleusercontent.com',
+	  redirect_uri: window.location.protocol + '//' + window.location.hostname + ':' + window.location.port + '/callback',
+	  response_type: 'token id_token',
+	  scope: 'openid profile https://www.googleapis.com/auth/youtube.readonly',
+	  authority: 'https://accounts.google.com',
+	  silent_redirect_uri: window.location.protocol + '//' + window.location.hostname + ':' + window.location.port + '/silent_renew.html',
+	  automaticSilentRenew: true,
+	  filterProtocolClaims: true,
+	  loadUserInfo: true,
+	
+	  // Google's discovery document doesn't have CORS support, therefore we have to set the metadata settings manually
+	  metadata: {
+	    issuer: "https://accounts.google.com",
+	    authorization_endpoint: "https://accounts.google.com/o/oauth2/v2/auth",
+	    token_endpoint: "https://www.googleapis.com/oauth2/v4/token",
+	    userinfo_endpoint: "https://www.googleapis.com/oauth2/v3/userinfo",
+	    jwks_uri: "https://www.googleapis.com/oauth2/v3/certs",
+	    signingKeys: [{
+	      "kty": "RSA",
+	      "alg": "RS256",
+	      "use": "sig",
+	      "kid": "ba1b3ecbf5f87c50b6ef15f1bb50a8c13f17a497",
+	      "n": "oyMZAGpqaNdfSdWlUb8zDQab8Z99rt01UK5A4g6eMWrV7f-o2HopdZZtQebMkQ5UYMxFnjBoowwiVKaW_EWc3DCs6wwiYposR18kLZht2NKxRd9VykfsQLoxuC8fZVWQQ5c3Fznd-cRvPfbdZkdRj1Y_vkgzZQnK_Q5gcUAYsLJZodL_jTc9hRjys2F5wwt-npPpa1pMxSLY_IfCnrW7ucnvQAgCdXedI2D_s2Y-Wrks9kj0zwe31GTFI2ZUOQwdPafY982oGiO15l5fwrq-xjNxFo8JIfHBzPr3JVkWsPETmS74DJeKo172d6SccNsyNnBIUBlqxYt6IeNpktIwCw",
+	      "e": "AQAB"
+	    }, {
+	      "kty": "RSA",
+	      "alg": "RS256",
+	      "use": "sig",
+	      "kid": "93d45f7c2d58c6eaba22373bf1adcdbe9ab49af8",
+	      "n": "wUSUDL3sRKAkDh9LwfGVdi_shYDB0bD23YQnVqUaKlLk0YHOuo7iS5CfQAdCnS_w-fZKTui2yGlCu4oVhVHgnTkAU3cWRhyQNjJxG_tfFQg2sID2UaCNCq7jMHTIbAsf4MmDgZ6HOpiKsafMGUfWLsJc0Loe0QJnIWywSPnHmcXjs9kWExp29Xu1ka7rGK5rsDUH39sfi_Px2IeqDPdOFqUDRLCO9goaKE-IlCbZlgv2lnAoLRkmSVu7IXyNRjQPawIfBCLw91PxYMDqBcnTMf1fHAlnXzPy68B_aodv6PgPg5li0Y7aTDiiRmbyQVl-w7MCqAD1dxxqapbIqhmmhQ",
+	      "e": "AQAB"
+	    }, {
+	      "kty": "RSA",
+	      "alg": "RS256",
+	      "use": "sig",
+	      "kid": "df6dbd2fe4ef7f280fd258f4f9ba4d0c47084e45",
+	      "n": "vyM4hMZhtQM6hegDxcW1WMETR1d4ddtO8KZYrP86ax75L6TKKKfFSkIA0xGAtmnyxjGlfWi02DAj_giqSv2LSK5Ufmo79hOyQUgVbEyYgVkSFohYvBTAdY9lbIWJuzAxjplX7g3psrpv4sNdBdp1R3xvcNOiGBBUsuQJ7pZbez_wm3an07Gc2wfWNZpDYJFlhzusqRVCX4DY4OR_I1Fc9a97PRfKlKyjHzBT208YRap_IypSZrN5cQZ2ikAmPZDjX17ozaAhlXbPW-_NV31R6FmdhtH4BYz-uHSBvWvZWnUCQlk4PbfAJgf1pCNsP-qZoGtVXenyBF6nEjXnIlR7Hw",
+	      "e": "AQAB"
+	    }]
+	  }
+	};
+	
+	var userManager = (0, _reduxOidc.createUserManager)(userManagerConfig);
+	
+	exports['default'] = userManager;
+
+/***/ },
+/* 577 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	var _react = __webpack_require__(301);
@@ -38438,15 +38461,15 @@
 	
 	var _reduxOidc = __webpack_require__(490);
 	
-	var _helpers = __webpack_require__(577);
+	var _helpers = __webpack_require__(578);
 	
 	var _reactRedux = __webpack_require__(468);
 	
-	var _loginPage = __webpack_require__(578);
+	var _loginPage = __webpack_require__(579);
 	
 	var _loginPage2 = _interopRequireDefault(_loginPage);
 	
-	var _mainPage = __webpack_require__(579);
+	var _mainPage = __webpack_require__(580);
 	
 	var _mainPage2 = _interopRequireDefault(_mainPage);
 	
@@ -38512,7 +38535,7 @@
 	exports['default'] = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(HomePage);
 
 /***/ },
-/* 577 */
+/* 578 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -38532,7 +38555,7 @@
 	}
 
 /***/ },
-/* 578 */
+/* 579 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38547,7 +38570,9 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _store = __webpack_require__(551);
+	var _userManager = __webpack_require__(576);
+	
+	var _userManager2 = _interopRequireDefault(_userManager);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
@@ -38573,7 +38598,7 @@
 	
 	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(LoginPage)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.onLoginButtonClick = function (event) {
 	      event.preventDefault();
-	      _store.userManager.signinRedirect();
+	      _userManager2['default'].signinRedirect();
 	    }, _temp), _possibleConstructorReturn(_this, _ret);
 	  }
 	
@@ -38597,7 +38622,7 @@
 	          _react2['default'].createElement(
 	            'button',
 	            { onClick: this.onLoginButtonClick },
-	            'Login'
+	            'Login with Google'
 	          )
 	        );
 	      }
@@ -38622,7 +38647,7 @@
 	exports['default'] = LoginPage;
 
 /***/ },
-/* 579 */
+/* 580 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38639,11 +38664,13 @@
 	
 	var _reactRedux = __webpack_require__(468);
 	
-	var _store = __webpack_require__(551);
+	var _userManager = __webpack_require__(576);
+	
+	var _userManager2 = _interopRequireDefault(_userManager);
 	
 	var _actions = __webpack_require__(572);
 	
-	var _channelInfo = __webpack_require__(580);
+	var _channelInfo = __webpack_require__(581);
 	
 	var _channelInfo2 = _interopRequireDefault(_channelInfo);
 	
@@ -38674,7 +38701,7 @@
 	      alert(JSON.stringify(_this.props.user, null, 2));
 	    }, _this.onLogoutButtonClicked = function (event) {
 	      event.preventDefault();
-	      _store.userManager.signoutRedirect();
+	      _userManager2['default'].signoutRedirect();
 	    }, _temp), _possibleConstructorReturn(_this, _ret);
 	  }
 	
@@ -38714,28 +38741,28 @@
 	              'h3',
 	              null,
 	              'Welcome, ',
-	              user.profile.name,
+	              user ? user.profile.name : 'Mister Unknown',
 	              '!'
 	            ),
 	            _react2['default'].createElement(
 	              'p',
 	              null,
-	              'Your 5 recent YouTube subscriptions:'
+	              'Your 5 most recent YouTube channel subscriptions:'
 	            )
 	          ),
 	          channels.length > 0 ? this.channels : _react2['default'].createElement(
-	            'span',
+	            'i',
 	            null,
 	            'You have no subscriptions.'
 	          ),
 	          _react2['default'].createElement(
 	            'button',
-	            { style: styles.button, onClick: this.showUserInfoButtonClick },
+	            { onClick: this.showUserInfoButtonClick },
 	            'Show user info'
 	          ),
 	          _react2['default'].createElement(
 	            'button',
-	            { style: styles.button, onClick: this.onLogoutButtonClicked },
+	            { onClick: this.onLogoutButtonClicked },
 	            'Logout'
 	          )
 	        );
@@ -38745,6 +38772,9 @@
 	    }()
 	  }, {
 	    key: 'channels',
+	
+	
+	    // the channels list
 	    get: function () {
 	      function get() {
 	        var channels = this.props.channels;
@@ -38782,9 +38812,6 @@
 	  },
 	  li: {
 	    display: 'flex'
-	  },
-	  button: {
-	    flexShrink: 1
 	  }
 	};
 	
@@ -38804,7 +38831,7 @@
 	exports['default'] = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(MainPage);
 
 /***/ },
-/* 580 */
+/* 581 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38839,12 +38866,7 @@
 	        null,
 	        channel.title
 	      ),
-	      _react2['default'].createElement(
-	        'span',
-	        null,
-	        channel.description.length > 100 ? channel.description.substring(0, 100).concat('...') : channel.description,
-	        '...'
-	      )
+	      channel.description.length > 100 ? channel.description.substring(0, 100).concat('...') : channel.description
 	    )
 	  );
 	}
@@ -38857,6 +38879,7 @@
 	    flex: '0 1 auto'
 	  },
 	  info: {
+	    paddingLeft: '.5em',
 	    flex: '1 0 auto',
 	    flexDirection: 'column',
 	    alignItems: 'flex-start',
@@ -38867,7 +38890,7 @@
 	exports['default'] = ChannelInfo;
 
 /***/ },
-/* 581 */
+/* 582 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38938,7 +38961,7 @@
 	exports['default'] = (0, _reactRedux.connect)(null, mapDispatchToProps)(CallbackPage);
 
 /***/ },
-/* 582 */
+/* 583 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38984,7 +39007,7 @@
 	exports['default'] = Root;
 
 /***/ },
-/* 583 */
+/* 584 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var require;var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(process, global, module) {/*!
@@ -39117,7 +39140,7 @@
 	    function lib$es6$promise$asap$$attemptVertx() {
 	      try {
 	        var r = require;
-	        var vertx = __webpack_require__(585);
+	        var vertx = __webpack_require__(586);
 	        lib$es6$promise$asap$$vertxNext = vertx.runOnLoop || vertx.runOnContext;
 	        return lib$es6$promise$asap$$useVertxTimer();
 	      } catch(e) {
@@ -39935,7 +39958,7 @@
 	    };
 	
 	    /* global define:true module:true window: true */
-	    if ("function" === 'function' && __webpack_require__(586)['amd']) {
+	    if ("function" === 'function' && __webpack_require__(587)['amd']) {
 	      !(__WEBPACK_AMD_DEFINE_RESULT__ = function() { return lib$es6$promise$umd$$ES6Promise; }.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	    } else if (typeof module !== 'undefined' && module['exports']) {
 	      module['exports'] = lib$es6$promise$umd$$ES6Promise;
@@ -39947,10 +39970,10 @@
 	}).call(this);
 	
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(296), (function() { return this; }()), __webpack_require__(584)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(296), (function() { return this; }()), __webpack_require__(585)(module)))
 
 /***/ },
-/* 584 */
+/* 585 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -39966,13 +39989,13 @@
 
 
 /***/ },
-/* 585 */
+/* 586 */
 /***/ function(module, exports) {
 
 	/* (ignored) */
 
 /***/ },
-/* 586 */
+/* 587 */
 /***/ function(module, exports) {
 
 	module.exports = function() { throw new Error("define cannot be used indirect"); };

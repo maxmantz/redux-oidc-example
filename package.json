@@ -8,7 +8,7 @@
     "build": "webpack",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack-dev-server.config.js",
     "prod": "cross-env NODE_ENV=production npm run ./server.js",
-    "build:gulp": "gulp build-dev"
+    "start": "node server"
   },
   "author": "Maximilian Mantz",
   "license": "MIT",
@@ -27,6 +27,7 @@
     "babel-require": "^1.0.1",
     "babel-template": "^6.7.0",
     "babel-types": "^6.7.2",
+    "es6-promise": "^3.2.1",
     "express": "^4.13.4",
     "file-loader": "^0.8.5",
     "gulp": "^3.9.1",

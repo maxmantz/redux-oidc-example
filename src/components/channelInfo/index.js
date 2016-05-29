@@ -10,7 +10,7 @@ function ChannelInfo(props) {
       </div>
       <div style={styles.info}>
         <h3>{channel.title}</h3>
-        <span>{channel.description.length > 100 ? channel.description.substring(0, 100).concat('...') : channel.description}...</span>
+        {channel.description.length > 100 ? channel.description.substring(0, 100).concat('...') : channel.description}
       </div>
     </div>
   );
@@ -24,6 +24,7 @@ const styles = {
     flex: '0 1 auto'
   },
   info: {
+    paddingLeft: '.5em',
     flex: '1 0 auto',
     flexDirection: 'column',
     alignItems: 'flex-start',
