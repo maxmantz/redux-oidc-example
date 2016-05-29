@@ -3,7 +3,7 @@ import { browserHistory } from 'react-router';
 import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-router-redux';
 import createOidcMiddleware, { createUserManager } from 'redux-oidc';
 import createSagaMiddleware from 'redux-saga'
-import { loadVideosSaga } from './sagas';
+import { loadSubscriptionsSaga } from './sagas';
 import reducer from './reducer';
 
 const userManagerConfig = {
@@ -67,6 +67,6 @@ const createStoreWithMiddleware = compose(
 
 const store = createStoreWithMiddleware(reducer, initialState);
 
-sagaMiddleware.run(loadVideosSaga);
+sagaMiddleware.run(loadSubscriptionsSaga);
 
 export default store;

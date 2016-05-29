@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { OidcProvider } from 'redux-oidc';
 import Routes from '../routes';
 import store, { userManager } from '../store';
-import Root from '../components/Root';
+import Root from '../components/root';
 
 export default function App(props) {
   return (
@@ -14,5 +14,5 @@ export default function App(props) {
         </Root>
       </OidcProvider>
     </Provider>
-  )
+  );
 }

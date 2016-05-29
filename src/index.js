@@ -1,14 +1,8 @@
-import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import App from './app/app';
 
-// needed for Material-UI
-import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin();
-
-// you'll need this
+// you'll need this for older browsers
 require('es6-promise').polyfill();
 
 const styles = {
@@ -17,7 +11,8 @@ const styles = {
     width: '100vw',
     fontFamily:'"Roboto", sans-serif',
     background: '#fff',
-    display: 'flex'
+    display: 'flex',
+    alignItems: 'center'
   }
 }
 

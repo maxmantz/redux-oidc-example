@@ -1,14 +1,14 @@
-import { LOAD_VIDEOS_START, LOAD_VIDEOS_SUCCESS } from '../constants';
+import { LOAD_SUBSCRIPTIONS_START, LOAD_SUBSCRIPTIONS_SUCCESS } from '../constants';
 
-export function loadVideosStart() {
+export function loadSubscriptionsStart() {
   return {
-    type: LOAD_VIDEOS_START
+    type: LOAD_SUBSCRIPTIONS_START
   };
 }
 
-export function loadVideosSuccess(videos) {
+export function loadSubscriptionsSuccess(channels) {
   return {
-    type: LOAD_VIDEOS_SUCCESS,
-    payload: videos
+    type: LOAD_SUBSCRIPTIONS_SUCCESS,
+    payload: channels
   };
 }

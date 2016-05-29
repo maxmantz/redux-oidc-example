@@ -5,7 +5,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   devtool: 'source-map',
   entry: {
-    app: ['./src/index.js'],
+    app: ['whatwg-fetch', 'babel-polyfill', './src/index.js'],
     silentRenew: ['./silent_renew/index.js']
   },
   output: {

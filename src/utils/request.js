@@ -1,12 +1,18 @@
-import request from 'superagent';
 import store from '../store';
 
-export default function apiRequest(url) {
+export default function apiRequest(url, method = 'GET') {
   const token = store.getState().oidc.user.access_token;
-  return request.get(url)
-                .set('Authorization', `Bearer ${token}`)
-                .set('Accept', 'application/json')
-                .end((err, res) => {
-                  return err ? { error: err } : { data: res.body }
-                });
+  const headers = new Headers();
+  headers.append('Accept', 'application/json');
+  headers.append('Authorization', `Bearer ${token}`);
+
+  const options = {
+    method,
+    headers
+  };
+
+  return fetch(url, options)
+    .then((res) => res.json())
+    .then((data) => ({data}))
+    .catch((error) => ({ error }));
 }

@@ -23,6 +23,8 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-around',
+    alignItems: 'center',
+    flexShrink: 1,
   }
 }
 
