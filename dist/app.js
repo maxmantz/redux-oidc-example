@@ -8547,7 +8547,7 @@
 	
 	var _app2 = _interopRequireDefault(_app);
 	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	// you'll need this for older browsers
 	__webpack_require__(584).polyfill();
@@ -8563,10 +8563,10 @@
 	  }
 	};
 	
-	_reactDom2['default'].render(_react2['default'].createElement(
+	_reactDom2.default.render(_react2.default.createElement(
 	  'div',
 	  { style: styles.root },
-	  _react2['default'].createElement(_app2['default'], null)
+	  _react2.default.createElement(_app2.default, null)
 	), document.getElementById('app'));
 
 /***/ },
@@ -28746,7 +28746,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports['default'] = App;
+	exports.default = App;
 	
 	var _react = __webpack_require__(301);
 	
@@ -28772,19 +28772,19 @@
 	
 	var _root2 = _interopRequireDefault(_root);
 	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function App(props) {
-	  return _react2['default'].createElement(
+	  return _react2.default.createElement(
 	    _reactRedux.Provider,
-	    { store: _store2['default'] },
-	    _react2['default'].createElement(
+	    { store: _store2.default },
+	    _react2.default.createElement(
 	      _reduxOidc.OidcProvider,
-	      { store: _store2['default'], userManager: _userManager2['default'] },
-	      _react2['default'].createElement(
-	        _root2['default'],
+	      { store: _store2.default, userManager: _userManager2.default },
+	      _react2.default.createElement(
+	        _root2.default,
 	        null,
-	        _react2['default'].createElement(_routes2['default'], null)
+	        _react2.default.createElement(_routes2.default, null)
 	      )
 	    )
 	  );
@@ -30361,7 +30361,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports['default'] = Routes;
+	exports.default = Routes;
 	
 	var _react = __webpack_require__(301);
 	
@@ -30387,16 +30387,16 @@
 	
 	var _loginPage2 = _interopRequireDefault(_loginPage);
 	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var history = (0, _reactRouterRedux.syncHistoryWithStore)(_reactRouter.browserHistory, _store2['default']);
+	var history = (0, _reactRouterRedux.syncHistoryWithStore)(_reactRouter.browserHistory, _store2.default);
 	
 	function Routes(props) {
-	  return _react2['default'].createElement(
+	  return _react2.default.createElement(
 	    _reactRouter.Router,
 	    { history: history },
-	    _react2['default'].createElement(_reactRouter.Route, { path: '/', component: _homePage2['default'] }),
-	    _react2['default'].createElement(_reactRouter.Route, { path: '/callback', component: _callback2['default'] })
+	    _react2.default.createElement(_reactRouter.Route, { path: '/', component: _homePage2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: '/callback', component: _callback2.default })
 	  );
 	}
 
@@ -35839,22 +35839,22 @@
 	
 	var _userManager2 = _interopRequireDefault(_userManager);
 	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	// create the middleware with the userManager, null for shouldValidate, and triggerAuthFlow false
-	var oidcMiddleware = (0, _reduxOidc2['default'])(_userManager2['default'], null, false);
+	var oidcMiddleware = (0, _reduxOidc2.default)(_userManager2.default, null, false);
 	
-	var sagaMiddleware = (0, _reduxSaga2['default'])();
+	var sagaMiddleware = (0, _reduxSaga2.default)();
 	
 	var initialState = {};
 	
 	var createStoreWithMiddleware = (0, _redux.compose)((0, _redux.applyMiddleware)(oidcMiddleware, (0, _reactRouterRedux.routerMiddleware)(_reactRouter.browserHistory), sagaMiddleware))(_redux.createStore);
 	
-	var store = createStoreWithMiddleware(_reducer2['default'], initialState);
+	var store = createStoreWithMiddleware(_reducer2.default, initialState);
 	
 	sagaMiddleware.run(_sagas.loadSubscriptionsSaga);
 	
-	exports['default'] = store;
+	exports.default = store;
 
 /***/ },
 /* 552 */
@@ -38131,105 +38131,101 @@
 	
 	var _request2 = _interopRequireDefault(_request);
 	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var _marked = [loadSubscriptionsSaga].map(regeneratorRuntime.mark);
 	
 	function loadSubscriptionsSaga() {
 	    var url, result, channels, _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, channel;
 	
-	    return regeneratorRuntime.wrap(function () {
-	        function loadSubscriptionsSaga$(_context) {
-	            while (1) {
-	                switch (_context.prev = _context.next) {
-	                    case 0:
-	                        if (false) {
-	                            _context.next = 32;
-	                            break;
-	                        }
-	
-	                        _context.next = 3;
-	                        return (0, _effects.take)(_constants.LOAD_SUBSCRIPTIONS_START);
-	
-	                    case 3:
-	                        url = 'https://www.googleapis.com/youtube/v3/subscriptions?part=snippet&mine=true';
-	                        _context.next = 6;
-	                        return (0, _effects.call)(_request2['default'], url);
-	
-	                    case 6:
-	                        result = _context.sent;
-	
-	
-	                        console.log('Result', result);
-	
-	                        channels = [];
-	                        _iteratorNormalCompletion = true;
-	                        _didIteratorError = false;
-	                        _iteratorError = undefined;
-	                        _context.prev = 12;
-	
-	
-	                        for (_iterator = result.data.items[Symbol.iterator](); !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                            channel = _step.value;
-	
-	                            channels.push({
-	                                id: channel.snippet.resourceId.channelId,
-	                                title: channel.snippet.title,
-	                                description: channel.snippet.description,
-	                                thumbnail: channel.snippet.thumbnails['default'].url
-	                            });
-	                        }
-	
-	                        _context.next = 20;
+	    return regeneratorRuntime.wrap(function loadSubscriptionsSaga$(_context) {
+	        while (1) {
+	            switch (_context.prev = _context.next) {
+	                case 0:
+	                    if (false) {
+	                        _context.next = 32;
 	                        break;
+	                    }
 	
-	                    case 16:
-	                        _context.prev = 16;
-	                        _context.t0 = _context['catch'](12);
-	                        _didIteratorError = true;
-	                        _iteratorError = _context.t0;
+	                    _context.next = 3;
+	                    return (0, _effects.take)(_constants.LOAD_SUBSCRIPTIONS_START);
 	
-	                    case 20:
-	                        _context.prev = 20;
-	                        _context.prev = 21;
+	                case 3:
+	                    url = 'https://www.googleapis.com/youtube/v3/subscriptions?part=snippet&mine=true';
+	                    _context.next = 6;
+	                    return (0, _effects.call)(_request2.default, url);
 	
-	                        if (!_iteratorNormalCompletion && _iterator['return']) {
-	                            _iterator['return']();
-	                        }
+	                case 6:
+	                    result = _context.sent;
 	
-	                    case 23:
-	                        _context.prev = 23;
 	
-	                        if (!_didIteratorError) {
-	                            _context.next = 26;
-	                            break;
-	                        }
+	                    console.log('Result', result);
 	
-	                        throw _iteratorError;
+	                    channels = [];
+	                    _iteratorNormalCompletion = true;
+	                    _didIteratorError = false;
+	                    _iteratorError = undefined;
+	                    _context.prev = 12;
 	
-	                    case 26:
-	                        return _context.finish(23);
 	
-	                    case 27:
-	                        return _context.finish(20);
+	                    for (_iterator = result.data.items[Symbol.iterator](); !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                        channel = _step.value;
 	
-	                    case 28:
-	                        _context.next = 30;
-	                        return (0, _effects.put)((0, _actions.loadSubscriptionsSuccess)(channels));
+	                        channels.push({
+	                            id: channel.snippet.resourceId.channelId,
+	                            title: channel.snippet.title,
+	                            description: channel.snippet.description,
+	                            thumbnail: channel.snippet.thumbnails.default.url
+	                        });
+	                    }
 	
-	                    case 30:
-	                        _context.next = 0;
+	                    _context.next = 20;
+	                    break;
+	
+	                case 16:
+	                    _context.prev = 16;
+	                    _context.t0 = _context['catch'](12);
+	                    _didIteratorError = true;
+	                    _iteratorError = _context.t0;
+	
+	                case 20:
+	                    _context.prev = 20;
+	                    _context.prev = 21;
+	
+	                    if (!_iteratorNormalCompletion && _iterator.return) {
+	                        _iterator.return();
+	                    }
+	
+	                case 23:
+	                    _context.prev = 23;
+	
+	                    if (!_didIteratorError) {
+	                        _context.next = 26;
 	                        break;
+	                    }
 	
-	                    case 32:
-	                    case 'end':
-	                        return _context.stop();
-	                }
+	                    throw _iteratorError;
+	
+	                case 26:
+	                    return _context.finish(23);
+	
+	                case 27:
+	                    return _context.finish(20);
+	
+	                case 28:
+	                    _context.next = 30;
+	                    return (0, _effects.put)((0, _actions.loadSubscriptionsSuccess)(channels));
+	
+	                case 30:
+	                    _context.next = 0;
+	                    break;
+	
+	                case 32:
+	                case 'end':
+	                    return _context.stop();
 	            }
 	        }
-	
-	        return loadSubscriptionsSaga$;
-	    }(), _marked[0], this, [[12, 16, 20, 28], [21,, 23, 27]]);
+	    }, _marked[0], this, [[12, 16, 20, 28], [21,, 23, 27]]);
 	}
 
 /***/ },
@@ -38286,19 +38282,19 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports['default'] = apiRequest;
+	exports.default = apiRequest;
 	
 	var _store = __webpack_require__(551);
 	
 	var _store2 = _interopRequireDefault(_store);
 	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	// a request helper which reads the access_token from the redux state and passes it in its HTTP request
 	function apiRequest(url) {
 	  var method = arguments.length <= 1 || arguments[1] === undefined ? 'GET' : arguments[1];
 	
-	  var token = _store2['default'].getState().oidc.user.access_token;
+	  var token = _store2.default.getState().oidc.user.access_token;
 	  var headers = new Headers();
 	  headers.append('Accept', 'application/json');
 	  headers.append('Authorization', 'Bearer ' + token);
@@ -38312,7 +38308,7 @@
 	    return res.json();
 	  }).then(function (data) {
 	    return { data: data };
-	  })['catch'](function (error) {
+	  }).catch(function (error) {
 	    return { error: error };
 	  });
 	}
@@ -38337,15 +38333,15 @@
 	
 	var _subscriptions2 = _interopRequireDefault(_subscriptions);
 	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var reducer = (0, _redux.combineReducers)({
 	  routing: _reactRouterRedux.routerReducer,
 	  oidc: _reduxOidc.reducer,
-	  subscriptions: _subscriptions2['default']
+	  subscriptions: _subscriptions2.default
 	});
 	
-	exports['default'] = reducer;
+	exports.default = reducer;
 
 /***/ },
 /* 575 */
@@ -38359,7 +38355,7 @@
 	
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 	
-	exports['default'] = reducer;
+	exports.default = reducer;
 	
 	var _constants = __webpack_require__(571);
 	
@@ -38441,7 +38437,7 @@
 	
 	var userManager = (0, _reduxOidc.createUserManager)(userManagerConfig);
 	
-	exports['default'] = userManager;
+	exports.default = userManager;
 
 /***/ },
 /* 577 */
@@ -38473,7 +38469,7 @@
 	
 	var _mainPage2 = _interopRequireDefault(_mainPage);
 	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -38492,33 +38488,25 @@
 	
 	  _createClass(HomePage, [{
 	    key: 'render',
-	    value: function () {
-	      function render() {
-	        var user = this.props.user;
+	    value: function render() {
+	      var user = this.props.user;
 	
 	
-	        return !user || user.expired ? _react2['default'].createElement(_loginPage2['default'], null) : _react2['default'].createElement(_mainPage2['default'], null);
-	      }
-	
-	      return render;
-	    }()
+	      return !user || user.expired ? _react2.default.createElement(_loginPage2.default, null) : _react2.default.createElement(_mainPage2.default, null);
+	    }
 	  }, {
 	    key: 'infoPage',
-	    get: function () {
-	      function get() {
-	        return _react2['default'].createElement(
-	          'div',
-	          null,
-	          'Info Page'
-	        );
-	      }
-	
-	      return get;
-	    }()
+	    get: function get() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        'Info Page'
+	      );
+	    }
 	  }]);
 	
 	  return HomePage;
-	}(_react2['default'].Component);
+	}(_react2.default.Component);
 	
 	function mapStateToProps(state) {
 	  return {
@@ -38532,7 +38520,7 @@
 	  };
 	}
 	
-	exports['default'] = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(HomePage);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(HomePage);
 
 /***/ },
 /* 578 */
@@ -38574,7 +38562,7 @@
 	
 	var _userManager2 = _interopRequireDefault(_userManager);
 	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -38598,41 +38586,37 @@
 	
 	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(LoginPage)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.onLoginButtonClick = function (event) {
 	      event.preventDefault();
-	      _userManager2['default'].signinRedirect();
+	      _userManager2.default.signinRedirect();
 	    }, _temp), _possibleConstructorReturn(_this, _ret);
 	  }
 	
 	  _createClass(LoginPage, [{
 	    key: 'render',
-	    value: function () {
-	      function render() {
-	        return _react2['default'].createElement(
-	          'div',
-	          { style: styles.root },
-	          _react2['default'].createElement(
-	            'h3',
-	            null,
-	            'Welcome to the redux-oidc sample app!'
-	          ),
-	          _react2['default'].createElement(
-	            'p',
-	            null,
-	            'Please log in to continue'
-	          ),
-	          _react2['default'].createElement(
-	            'button',
-	            { onClick: this.onLoginButtonClick },
-	            'Login with Google'
-	          )
-	        );
-	      }
-	
-	      return render;
-	    }()
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { style: styles.root },
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          'Welcome to the redux-oidc sample app!'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'Please log in to continue'
+	        ),
+	        _react2.default.createElement(
+	          'button',
+	          { onClick: this.onLoginButtonClick },
+	          'Login with Google'
+	        )
+	      );
+	    }
 	  }]);
 	
 	  return LoginPage;
-	}(_react2['default'].Component);
+	}(_react2.default.Component);
 	
 	var styles = {
 	  root: {
@@ -38644,7 +38628,7 @@
 	  }
 	};
 	
-	exports['default'] = LoginPage;
+	exports.default = LoginPage;
 
 /***/ },
 /* 580 */
@@ -38674,7 +38658,7 @@
 	
 	var _channelInfo2 = _interopRequireDefault(_channelInfo);
 	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -38701,7 +38685,7 @@
 	      alert(JSON.stringify(_this.props.user, null, 2));
 	    }, _this.onLogoutButtonClicked = function (event) {
 	      event.preventDefault();
-	      _userManager2['default'].signoutRedirect();
+	      _userManager2.default.signoutRedirect();
 	    }, _temp), _possibleConstructorReturn(_this, _ret);
 	  }
 	
@@ -38709,13 +38693,9 @@
 	    key: 'componentWillMount',
 	
 	    // load the subscriptions
-	    value: function () {
-	      function componentWillMount() {
-	        this.props.dispatch((0, _actions.loadSubscriptionsStart)());
-	      }
-	
-	      return componentWillMount;
-	    }()
+	    value: function componentWillMount() {
+	      this.props.dispatch((0, _actions.loadSubscriptionsStart)());
+	    }
 	
 	    // display the current user
 	
@@ -38724,80 +38704,72 @@
 	
 	  }, {
 	    key: 'render',
-	    value: function () {
-	      function render() {
-	        var _props = this.props;
-	        var user = _props.user;
-	        var channels = _props.channels;
+	    value: function render() {
+	      var _props = this.props;
+	      var user = _props.user;
+	      var channels = _props.channels;
 	
 	
-	        return _react2['default'].createElement(
+	      return _react2.default.createElement(
+	        'div',
+	        { style: styles.root },
+	        _react2.default.createElement(
 	          'div',
-	          { style: styles.root },
-	          _react2['default'].createElement(
-	            'div',
-	            { style: styles.title },
-	            _react2['default'].createElement(
-	              'h3',
-	              null,
-	              'Welcome, ',
-	              user ? user.profile.name : 'Mister Unknown',
-	              '!'
-	            ),
-	            _react2['default'].createElement(
-	              'p',
-	              null,
-	              'Your 5 most recent YouTube channel subscriptions:'
-	            )
-	          ),
-	          channels.length > 0 ? this.channels : _react2['default'].createElement(
-	            'i',
+	          { style: styles.title },
+	          _react2.default.createElement(
+	            'h3',
 	            null,
-	            'You have no subscriptions.'
+	            'Welcome, ',
+	            user ? user.profile.name : 'Mister Unknown',
+	            '!'
 	          ),
-	          _react2['default'].createElement(
-	            'button',
-	            { onClick: this.showUserInfoButtonClick },
-	            'Show user info'
-	          ),
-	          _react2['default'].createElement(
-	            'button',
-	            { onClick: this.onLogoutButtonClicked },
-	            'Logout'
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'Your 5 most recent YouTube channel subscriptions:'
 	          )
-	        );
-	      }
-	
-	      return render;
-	    }()
+	        ),
+	        channels.length > 0 ? this.channels : _react2.default.createElement(
+	          'i',
+	          null,
+	          'You have no subscriptions.'
+	        ),
+	        _react2.default.createElement(
+	          'button',
+	          { onClick: this.showUserInfoButtonClick },
+	          'Show user info'
+	        ),
+	        _react2.default.createElement(
+	          'button',
+	          { onClick: this.onLogoutButtonClicked },
+	          'Logout'
+	        )
+	      );
+	    }
 	  }, {
 	    key: 'channels',
 	
 	
 	    // the channels list
-	    get: function () {
-	      function get() {
-	        var channels = this.props.channels;
+	    get: function get() {
+	      var channels = this.props.channels;
 	
-	        return _react2['default'].createElement(
-	          'ul',
-	          { style: styles.list },
-	          channels.map(function (channel) {
-	            return _react2['default'].createElement(
-	              'li',
-	              { key: channel.id, stlye: styles.li },
-	              _react2['default'].createElement(_channelInfo2['default'], { channel: channel })
-	            );
-	          })
-	        );
-	      }
-	
-	      return get;
-	    }()
+	      return _react2.default.createElement(
+	        'ul',
+	        { style: styles.list },
+	        channels.map(function (channel) {
+	          return _react2.default.createElement(
+	            'li',
+	            { key: channel.id, stlye: styles.li },
+	            _react2.default.createElement(_channelInfo2.default, { channel: channel })
+	          );
+	        })
+	      );
+	    }
 	  }]);
 	
 	  return MainPage;
-	}(_react2['default'].Component);
+	}(_react2.default.Component);
 	
 	var styles = {
 	  root: {
@@ -38828,7 +38800,7 @@
 	  };
 	}
 	
-	exports['default'] = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(MainPage);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(MainPage);
 
 /***/ },
 /* 581 */
@@ -38844,24 +38816,24 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function ChannelInfo(props) {
 	  var channel = props.channel;
 	
 	
-	  return _react2['default'].createElement(
+	  return _react2.default.createElement(
 	    'div',
 	    { style: styles.root },
-	    _react2['default'].createElement(
+	    _react2.default.createElement(
 	      'div',
 	      { style: styles.thumbnail },
-	      _react2['default'].createElement('img', { src: channel.thumbnail, alt: 'Thumbnail' })
+	      _react2.default.createElement('img', { src: channel.thumbnail, alt: 'Thumbnail' })
 	    ),
-	    _react2['default'].createElement(
+	    _react2.default.createElement(
 	      'div',
 	      { style: styles.info },
-	      _react2['default'].createElement(
+	      _react2.default.createElement(
 	        'h3',
 	        null,
 	        channel.title
@@ -38887,7 +38859,7 @@
 	  }
 	};
 	
-	exports['default'] = ChannelInfo;
+	exports.default = ChannelInfo;
 
 /***/ },
 /* 582 */
@@ -38911,7 +38883,7 @@
 	
 	var _reactRouterRedux = __webpack_require__(552);
 	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -38940,17 +38912,13 @@
 	
 	  _createClass(CallbackPage, [{
 	    key: 'render',
-	    value: function () {
-	      function render() {
-	        return _react2['default'].createElement(_reduxOidc.CallbackComponent, { successCallback: this.successCallback.bind(this) });
-	      }
-	
-	      return render;
-	    }()
+	    value: function render() {
+	      return _react2.default.createElement(_reduxOidc.CallbackComponent, { successCallback: this.successCallback.bind(this) });
+	    }
 	  }]);
 	
 	  return CallbackPage;
-	}(_react2['default'].Component);
+	}(_react2.default.Component);
 	
 	function mapDispatchToProps(dispatch) {
 	  return {
@@ -38958,7 +38926,7 @@
 	  };
 	}
 	
-	exports['default'] = (0, _reactRedux.connect)(null, mapDispatchToProps)(CallbackPage);
+	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps)(CallbackPage);
 
 /***/ },
 /* 583 */
@@ -38974,13 +38942,13 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function Root(props) {
-	  return _react2['default'].createElement(
+	  return _react2.default.createElement(
 	    'div',
 	    { style: styles.paper },
-	    _react2['default'].createElement(
+	    _react2.default.createElement(
 	      'div',
 	      { style: styles.content },
 	      props.children
@@ -39004,7 +38972,7 @@
 	};
 	
 	// display: 'flex'
-	exports['default'] = Root;
+	exports.default = Root;
 
 /***/ },
 /* 584 */
