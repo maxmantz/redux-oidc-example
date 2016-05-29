@@ -1,11 +1,7 @@
 var fs = require('fs');
 var http = require('http');
 var https = require('https');
-var privateKey  = fs.readFileSync(__dirname + '/key.pem', 'utf8');
-var certificate = fs.readFileSync(__dirname + '/cert.pem', 'utf8');
 var path = require('path');
-
-var credentials = {key: privateKey, cert: certificate};
 var express = require('express');
 var app = express();
 
@@ -22,8 +18,6 @@ app.use(express.static(__dirname + '/dist'))
     });
 });
 
-var httpsServer = https.createServer(credentials, app);
-
-httpsServer.listen(app.get('port'), function() {
+app.listen(app.get('port'), function() {
   console.log('Listening on port', app.get('port'));
 });
