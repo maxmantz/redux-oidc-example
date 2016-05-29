@@ -25,6 +25,10 @@ app.use(express.static(__dirname + '/dist'))
     res.sendFile('index.html', {
       root: __dirname + '/dist'
     });
+}).get('/silent_renew.html', {
+    res.sendFile('silent_renew.html', {
+      root: __dirname + '/dist'
+    });
 });
 
 var httpsServer = https.createServer(credentials, app);
