@@ -25,7 +25,7 @@ app.use(express.static(__dirname + '/dist'))
     res.sendFile('index.html', {
       root: __dirname + '/dist'
     });
-}).get('/silent_renew.html', {
+}).get('/silent_renew.html', function(req, res) {
     res.sendFile('silent_renew.html', {
       root: __dirname + '/dist'
     });
