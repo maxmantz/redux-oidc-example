@@ -11,8 +11,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].js',
-    chunkFilename: '[name].chunk.js',
-    publicPath: '/dist/'
+    chunkFilename: '[name].chunk.js'
   },
   plugins: [
     new webpack.optimize.DedupePlugin(),
