@@ -6,7 +6,7 @@ You will need a Google account to use it.
 
 After logging in, the app will query the YouTube API for a list of your 5 most recent channel subsciptions (if any).
 You can click on `Show user info` to view the user info stored in the reducer.
-Click on 'Logout' to log out again.
+Click on `Logout` to log out again.
 
 Visit <https://redux-oidc-example.herokuapp.com/>.
 
