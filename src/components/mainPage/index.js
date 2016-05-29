@@ -43,7 +43,7 @@ class MainPage extends React.Component {
           <h3>Welcome, {user ? user.profile.name : 'Mister Unknown'}!</h3>
           <p>Your 5 most recent YouTube channel subscriptions:</p>
         </div>
-        { channels.length > 0 ? this.channels: <i>You have no subscriptions.</i>}
+        { channels.length > 0 ? this.channels : <i>You have no subscriptions.</i>}
         <button onClick={this.showUserInfoButtonClick}>Show user info</button>
         <button onClick={this.onLogoutButtonClicked}>Logout</button>
       </div>
@@ -54,7 +54,7 @@ class MainPage extends React.Component {
 const styles = {
   root: {
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'column'
   },
   title: {
     flex: '1 0 auto',
