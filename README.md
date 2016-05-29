@@ -14,4 +14,4 @@ Clone this repo and run `npm install`.
 After that run `node server` to start the server.
 
 ### Configuration
-This app uses a [webpack config](webpack.config.js) for building two separate files, `index.html` for the app & `silent_renew.html` for silent renew. It uses express as a server with this [config](server.js) to allow the routing for both HTML files to work.
+This app uses a [webpack config](webpack.config.js) for building two separate files, `index.html` for the app & `silent_renew.html` for silent renew. It uses [express](https://github.com/expressjs/express) as a server with this [config](server.prod.js) to allow the routing for both HTML files to work.
