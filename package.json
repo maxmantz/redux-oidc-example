@@ -3,12 +3,17 @@
   "version": "1.0.0",
   "description": "A small example app to demonstrate the features of redux-oidc",
   "main": "dist/redux-oidc-example.js",
+  "engines": {
+    "node": "4.1.1",
+    "npm": "3.9.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack-dev-server.config.js",
     "prod": "cross-env NODE_ENV=production npm run ./server.js",
-    "start": "node server"
+    "start": "node server",
+    "postinstall": "webpack"
   },
   "author": "Maximilian Mantz",
   "license": "MIT",
