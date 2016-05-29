@@ -8554,8 +8554,6 @@
 	
 	var styles = {
 	  root: {
-	    height: '100vh',
-	    width: '100vw',
 	    fontFamily: '"Roboto", sans-serif',
 	    background: '#fff',
 	    display: 'flex',
@@ -38959,9 +38957,7 @@
 	var styles = {
 	  paper: {
 	    padding: '1em',
-	    // width: '100%',
 	    border: '1px solid black',
-	    width: '90vw',
 	    display: 'flex',
 	    margin: '0 auto'
 	  },
@@ -38971,7 +38967,6 @@
 	  }
 	};
 	
-	// display: 'flex'
 	exports.default = Root;
 
 /***/ },

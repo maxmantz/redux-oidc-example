@@ -7,8 +7,6 @@ require('es6-promise').polyfill();
 
 const styles = {
   root: {
-    height: '100vh',
-    width: '100vw',
     fontFamily:'"Roboto", sans-serif',
     background: '#fff',
     display: 'flex',
