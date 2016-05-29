@@ -23,12 +23,12 @@ app.use(function(request, response, next) {
 app.use(express.static(__dirname + '/dist'))
   .get('/', function (req, res) {
     res.sendFile('index.html', {
-      root: '.'
+      root: './dist'
     });
 });
 
 var httpsServer = https.createServer(credentials, app);
 
 httpsServer.listen(app.get('port'), function() {
-  console.log('Listening on port ', app.get('port'));
+  console.log('Listening on port', app.get('port'));
 });

@@ -12,9 +12,10 @@ module.exports = {
     path: path.join(__dirname, 'dist'),
     filename: '[name].js',
     chunkFilename: '[name].chunk.js',
+    publicPath: '/dist/'
   },
   plugins: [
-    new webpack.NoErrorsPlugin(),
+    new webpack.optimize.DedupePlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.html',
       chunks: ['app'],
