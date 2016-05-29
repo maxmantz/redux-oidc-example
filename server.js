@@ -11,6 +11,18 @@ var app = express();
 
 app.set('port', (process.env.PORT || 8080));
 
+app.use(function(req, res, next) {
+  if (path.extname(req.path).length > 0) {
+    next();
+  } else if (path.dirname(req.path).indexOf('silent_renew') > -1) {
+    req.url = '/silent_renew.html';
+    next();
+  } else {
+    req.url = '/index.html';
+    next();
+  }
+});
+
 app.use(express.static(__dirname + '/dist'))
   .get('/', function (req, res) {
     res.sendFile('index.html', {
