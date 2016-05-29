@@ -9,6 +9,8 @@ var credentials = {key: privateKey, cert: certificate};
 var express = require('express');
 var app = express();
 
+app.set('port', (process.env.PORT || 8080));
+
 app.use(function(request, response, next) {
   if (path.extname(request.path).length > 0) {
     next();
@@ -27,4 +29,6 @@ app.use(express.static('./dist'))
 
 var httpsServer = https.createServer(credentials, app);
 
-httpsServer.listen(process.env.port || 8080);
+httpsServer.listen(app.get('port'), function() {
+  console.log('Listening on port ', app.get('port'));
+});
