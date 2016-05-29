@@ -9,7 +9,7 @@ module.exports = {
     silentRenew: ['./silent_renew/index.js']
   },
   output: {
-    path: './dist',
+    path: path.join(__dirname, 'dist'),
     filename: '[name].js',
     chunkFilename: '[name].chunk.js',
   },
