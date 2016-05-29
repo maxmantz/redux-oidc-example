@@ -23,7 +23,7 @@ app.use(function(request, response, next) {
 app.use(express.static('./dist'))
   .get('/', function (req, res) {
     res.sendFile('index.html', {
-      root: './dist'
+      root: '.'
     });
 });
 
