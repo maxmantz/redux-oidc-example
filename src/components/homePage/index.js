@@ -1,6 +1,5 @@
 import React from 'react';
 import { createTokenManager } from 'redux-oidc';
-import { createTokenManagerConfig } from '../../helpers';
 import { connect } from 'react-redux';
 import LoginPage from '../loginPage';
 import MainPage from '../mainPage';
