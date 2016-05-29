@@ -27,4 +27,4 @@ app.use(express.static('./dist'))
 
 var httpsServer = https.createServer(credentials, app);
 
-httpsServer.listen(8080);
+httpsServer.listen(process.env.port || 8080);
