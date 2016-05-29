@@ -11,8 +11,6 @@ export function* loadSubscriptionsSaga() {
 
     const result = yield call(apiRequest, url);
 
-    console.log('Result', result);
-
     const channels = []
 
     for (const channel of result.data.items) {
