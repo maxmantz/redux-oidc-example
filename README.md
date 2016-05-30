@@ -8,7 +8,7 @@ After logging in, the app will query the YouTube API for a list of your 5 most r
 You can click on `Show user info` to view the user info stored in the reducer.
 Click on `Logout` to log out again.
 
-Visit <https://redux-oidc-example.herokuapp.com/>.
+Visit <https://redux-oidc-example.herokuapp.com/> for the live demo (might take a while to load).
 
 ### Technologies
 This app uses [react-router-redux](https://github.com/reactjs/react-router-redux) for routing and [redux-saga](https://github.com/yelouafi/redux-saga) to make API reqests.
