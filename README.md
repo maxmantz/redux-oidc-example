@@ -11,7 +11,7 @@ Click on `Logout` to log out again.
 Visit <https://redux-oidc-example.herokuapp.com/> for the live demo (might take a while to load).
 
 ### Technologies
-This app uses [react-router-redux](https://github.com/reactjs/react-router-redux) for routing and [redux-saga](https://github.com/yelouafi/redux-saga) to make API reqests.
+This app uses [react-router-redux](https://github.com/reactjs/react-router-redux) for routing and [redux-saga](https://github.com/yelouafi/redux-saga) to make API requests.
 
 ### Running locally
 Clone this repo and run `npm install`.
