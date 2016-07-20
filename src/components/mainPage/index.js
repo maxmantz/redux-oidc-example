@@ -19,7 +19,7 @@ class MainPage extends React.Component {
   // log out
   onLogoutButtonClicked = (event) => {
     event.preventDefault();
-    userManager.signoutRedirect();
+    userManager.removeUser(); // removes the user data from sessionStorage
   }
 
   // the channels list

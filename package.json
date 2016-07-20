@@ -43,7 +43,7 @@
     "react-router": "^2.0.1",
     "react-router-redux": "^4.0.2",
     "redux": "^3.4.0",
-    "redux-oidc": "^2.0.1",
+    "redux-oidc": "^2.0.2-beta.1",
     "redux-saga": "^0.10.4",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.1",
