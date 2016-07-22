@@ -28,7 +28,7 @@ class MainPage extends React.Component {
     return (
       <ul style={styles.list}>
         {channels.map((channel) => (
-          <li key={channel.id} stlye={styles.li}><ChannelInfo channel={channel} /></li>
+          <li key={channel.id} style={styles.li}><ChannelInfo channel={channel} /></li>
         ))}
       </ul>
     );
