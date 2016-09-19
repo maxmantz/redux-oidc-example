@@ -7,8 +7,8 @@ import { loadSubscriptionsSaga } from './sagas';
 import reducer from './reducer';
 import userManager from './utils/userManager';
 
-// create the middleware with the userManager, null for shouldValidate, and triggerAuthFlow false
-const oidcMiddleware = createOidcMiddleware(userManager, null, false);
+// create the middleware with the userManager, null for shouldValidate, triggerAuthFlow false, and the callback route registered with react-router-redux
+const oidcMiddleware = createOidcMiddleware(userManager, null, false, '/callback');
 
 const sagaMiddleware = createSagaMiddleware();
 
