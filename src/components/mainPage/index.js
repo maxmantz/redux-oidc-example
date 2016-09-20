@@ -1,13 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import userManager from '../../utils/userManager';
-import { loadSubscriptionsStart } from '../../actions';
+import { loadSubscriptions } from '../../actions';
 import ChannelInfo from '../channelInfo';
 
 class MainPage extends React.Component {
   // load the subscriptions
   componentWillMount() {
-    this.props.dispatch(loadSubscriptionsStart());
+      console.log("MainPage.componentWillMount - Start");
+    this.props.dispatch(loadSubscriptions());
+      console.log("MainPage.componentWillMount - End");    
+  }
+
+  componentDidMount() {
+      console.log("MainPage.componentDidMount - Start");
+      console.log("MainPage.componentDidMount - End");
+
   }
 
   // display the current user

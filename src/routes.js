@@ -12,6 +12,7 @@ export default function Routes(props) {
   return (
     <Router history={history}>
       <Route path="/" component={HomePage}/>
+      <Route path="/login" component={LoginPage} />
       <Route path="/callback" component={CallbackPage} />
     </Router>
   );

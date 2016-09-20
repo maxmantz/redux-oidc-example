@@ -12,8 +12,8 @@ class HomePage extends React.Component {
 
   render() {
     const { user } = this.props;
-
-    return !user || user.expired ? <LoginPage/> : <MainPage />;
+     return <MainPage />
+    // return !user || user.expired ? <LoginPage/> : <MainPage />;
   }
 }
 
