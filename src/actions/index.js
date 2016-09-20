@@ -1,8 +1,14 @@
 import 'whatwg-fetch';
 
-import { LOAD_SUBSCRIPTIONS_START, LOAD_SUBSCRIPTIONS_SUCCESS } from '../constants';
+import {
+  LOAD_SUBSCRIPTIONS_START,
+  LOAD_SUBSCRIPTIONS_SUCCESS,
+  SET_ERROR,
+  REMOVE_ERROR
+} from '../constants';
 import store from '../store';
 import apiRequest from '../utils/request';
+import { push } from 'react-router-redux';
 
 export function loadSubscriptionsStart() {
   return {
@@ -35,6 +41,32 @@ export function loadSubscriptions() {
             }
 
             dispatch(loadSubscriptionsSuccess(channels));
-        });      
+        });
     }
+}
+
+export function setError(error) {
+  return {
+    type: SET_ERROR,
+    payload: error
+  }
+}
+
+export function removeError(error) {
+  return {
+    type: REMOVE_ERROR
+  }
+}
+
+// this will generate an error
+export function errorRequest() {
+  return (dispatch) => {
+    const url = 'https://www.thisweirdurlhopefullydoesntexist.com';
+
+    apiRequest(url)
+      .then(result => {
+        dispatch(setError(result.error));
+        dispatch(push('/error'));
+      });
+  }
 }

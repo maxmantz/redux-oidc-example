@@ -5,6 +5,7 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import HomePage from './components/homePage';
 import CallbackPage from './components/callback';
 import LoginPage from './components/loginPage';
+import ErrorPage from './components/errorPage';
 
 const history = syncHistoryWithStore(browserHistory, store);
 
@@ -14,6 +15,7 @@ export default function Routes(props) {
       <Route path="/" component={HomePage}/>
       <Route path="/login" component={LoginPage} />
       <Route path="/callback" component={CallbackPage} />
+      <Route path="/error" component={ErrorPage} />
     </Router>
   );
 }

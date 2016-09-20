@@ -1,15 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import userManager from '../../utils/userManager';
-import { loadSubscriptions } from '../../actions';
+import { loadSubscriptions, errorRequest } from '../../actions';
 import ChannelInfo from '../channelInfo';
+import { push } from 'react-router-redux';
 
 class MainPage extends React.Component {
   // load the subscriptions
   componentWillMount() {
-      console.log("MainPage.componentWillMount - Start");
-    this.props.dispatch(loadSubscriptions());
-      console.log("MainPage.componentWillMount - End");    
+    const { user, dispatch } = this.props;
+    console.log("MainPage.componentWillMount - Start");
+
+    // check the user here and redirect to /login if necessary
+    if (!user || user.expired) {
+      console.log('User is null or invalid - redirecting to login page!');
+      dispatch(push('/login'));
+      return;
+    }
+
+    dispatch(loadSubscriptions());
+    console.log("MainPage.componentWillMount - End");
   }
 
   componentDidMount() {
@@ -28,6 +38,12 @@ class MainPage extends React.Component {
   onLogoutButtonClicked = (event) => {
     event.preventDefault();
     userManager.removeUser(); // removes the user data from sessionStorage
+    this.props.dispatch(push('/login'));
+  }
+
+  onErrorButtonClicked = (event) => {
+    event.preventDefault();
+    this.props.dispatch(errorRequest());
   }
 
   // the channels list
@@ -54,6 +70,7 @@ class MainPage extends React.Component {
         { channels.length > 0 ? this.channels : <i>You have no subscriptions.</i>}
         <button onClick={this.showUserInfoButtonClick}>Show user info</button>
         <button onClick={this.onLogoutButtonClicked}>Logout</button>
+        <button onClick={this.onErrorButtonClicked}>Don't click!</button>
       </div>
     );
   }
@@ -78,7 +95,8 @@ const styles = {
 function mapStateToProps(state) {
   return {
     user: state.oidc.user,
-    channels: state.subscriptions.channels
+    channels: state.subscriptions.channels,
+    error: state.error.error
   };
 }
 
