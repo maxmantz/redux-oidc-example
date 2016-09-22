@@ -13,8 +13,8 @@ class MainPage extends React.Component {
 
     // check the user here and redirect to /login if necessary
     if (!user || user.expired) {
-      console.log('User is null or invalid - redirecting to login page!');
-      dispatch(push('/login'));
+      //console.log('User is null or invalid - redirecting to login page!');
+      //dispatch(push('/login'));
       return;
     }
 

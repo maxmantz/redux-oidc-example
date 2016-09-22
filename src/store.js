@@ -9,9 +9,9 @@ import reducer from './reducer';
 import userManager from './utils/userManager';
 
 // create the middleware with the userManager, null for shouldValidate, and triggerAuthFlow false
-const oidcMiddleware = createOidcMiddleware(userManager, null, false);
+const oidcMiddleware = createOidcMiddleware(userManager, null, false, '/callback', null);
 
-const initialState = {};
+const initialState = { };
 
 const createStoreWithMiddleware = compose(
   applyMiddleware(oidcMiddleware, routerMiddleware(browserHistory), thunkMiddleware, logger())
