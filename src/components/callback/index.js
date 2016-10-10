@@ -9,8 +9,9 @@ class CallbackPage extends React.Component {
   }
 
   render() {
+    // just redirect to '/' in both cases
     return (
-      <CallbackComponent successCallback={this.successCallback.bind(this)} />
+      <CallbackComponent successCallback={this.successCallback} errorCallback={this.successCallback} />
     );
   }
 }
