@@ -16,6 +16,7 @@ This app uses [react-router-redux](https://github.com/reactjs/react-router-redux
 ### Running locally
 Clone this repo and run `npm install`.
 After that run `node server` to start the server.
+Please note that the server is running under TLS and therefore you need to visit https://localhost:8080 to find the app.
 
 ### Configuration
 This app uses a [webpack config](webpack.config.js) for building two separate files, `index.html` for the app & `silent_renew.html` for silent renew. It uses [express](https://github.com/expressjs/express) as a server with this [config](server.prod.js) to allow the routing for both HTML files to work.
