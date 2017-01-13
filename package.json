@@ -32,6 +32,7 @@
     "babel-require": "^1.0.1",
     "babel-template": "^6.7.0",
     "babel-types": "^6.7.2",
+    "co": "^4.6.0",
     "es6-promise": "^3.2.1",
     "express": "^4.13.4",
     "file-loader": "^0.8.5",
@@ -51,5 +52,8 @@
     "webpack": "^1.13.1",
     "webpack-config": "^4.0.0",
     "whatwg-fetch": "^1.0.0"
+  },
+  "devDependencies": {
+    "file-loader": "^0.8.5"
   }
 }
