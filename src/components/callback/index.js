@@ -12,7 +12,11 @@ class CallbackPage extends React.Component {
   render() {
     // just redirect to '/' in both cases
     return (
-      <CallbackComponent userManager={userManager} successCallback={this.successCallback} errorCallback={this.successCallback} />
+      <CallbackComponent userManager={userManager} successCallback={this.successCallback} errorCallback={this.successCallback}>
+        <div>
+          Redirecting...
+        </div>
+      </CallbackComponent>
     );
   }
 }
