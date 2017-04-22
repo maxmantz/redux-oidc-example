@@ -3,18 +3,10 @@ import { connect } from 'react-redux';
 import LoginPage from '../loginPage';
 import MainPage from '../mainPage';
 
-class HomePage extends React.Component {
-  get infoPage() {
-    return(
-      <div>Info Page</div>
-    );
-  }
+function HomePage(props) {
+  const { user } = props;
 
-  render() {
-    const { user } = this.props;
-
-    return !user || user.expired ? <LoginPage/> : <MainPage />;
-  }
+  return !user || user.expired ? <LoginPage/> : <MainPage />;
 }
 
 function mapStateToProps(state) {
