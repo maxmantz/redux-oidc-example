@@ -54,6 +54,7 @@
     "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {
-    "file-loader": "^0.8.5"
+    "file-loader": "^0.8.5",
+    "rimraf": "^2.6.1"
   }
 }
