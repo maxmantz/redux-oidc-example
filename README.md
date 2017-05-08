@@ -10,6 +10,12 @@ Click on `Logout` to log out again.
 
 Visit <https://redux-oidc-example.herokuapp.com/> for the live demo (might take a while to load).
 
+## Usage with silent renew (since redux-oidc v3.0.0-beta.7)
+See this app's [store](https://github.com/maxmantz/redux-oidc-example/blob/master/src/store.js) and [silent renew](https://github.com/maxmantz/redux-oidc-example/blob/master/silent_renew/index.js) configurations, as well as [webpack config](https://github.com/maxmantz/redux-oidc-example/blob/master/webpack.config.js) on how to use it.
+
+## Usage without silent renew
+Using this library without silent renew is possible by using the oidc middleware. See [this store configuration](https://github.com/maxmantz/redux-oidc-example/blob/master/src/storeWithoutSilentRenew.js) on how to use it.
+
 ### Technologies
 This app uses [react-router-redux](https://github.com/reactjs/react-router-redux) for routing and [redux-saga](https://github.com/yelouafi/redux-saga) to make API requests.
 
