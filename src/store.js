@@ -7,9 +7,6 @@ import { loadSubscriptionsSaga } from './sagas';
 import reducer from './reducer';
 import userManager from './utils/userManager';
 
-// create the middleware with the userManager
-// const oidcMiddleware = createOidcMiddleware(userManager);
-
 const sagaMiddleware = createSagaMiddleware();
 
 const loggerMiddleware = (store) => (next) => (action) => {
@@ -27,6 +24,8 @@ const createStoreWithMiddleware = compose(
 )(createStore);
 
 const store = createStoreWithMiddleware(reducer, initialState);
+
+// load the current user into the redux store
 loadUser(store, userManager);
 
 sagaMiddleware.run(loadSubscriptionsSaga);
