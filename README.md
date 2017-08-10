@@ -10,6 +10,9 @@ Click on `Logout` to log out again.
 
 Visit <https://redux-oidc-example.herokuapp.com/> for the live demo (might take a while to load).
 
+## Usage since redux-oidc v3.0.0-beta.10
+`co` has been removed from the peer dependencies. You don't need it anymore for running this library. You can also safely drop `babel-polyfill` from the silent renew script.
+
 ## Usage with silent renew (since redux-oidc v3.0.0-beta.7)
 See this app's [store](https://github.com/maxmantz/redux-oidc-example/blob/master/src/store.js) and [silent renew](https://github.com/maxmantz/redux-oidc-example/blob/master/silent_renew/index.js) configurations, as well as [webpack config](https://github.com/maxmantz/redux-oidc-example/blob/master/webpack.config.js) on how to use it.
 
