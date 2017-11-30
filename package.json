@@ -1,7 +1,8 @@
 {
   "name": "redux-oidc-example",
   "version": "1.0.0",
-  "description": "A small example app to demonstrate the features of redux-oidc",
+  "description":
+    "A small example app to demonstrate the features of redux-oidc",
   "main": "dist/redux-oidc-example.js",
   "engines": {
     "node": "8.x.x",
@@ -10,10 +11,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rimraf dist && webpack",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server",
     "prod": "cross-env NODE_ENV=production npm run ./server.js",
-    "start:client": "cross-env NODE_ENV=development webpack-dev-server",
-    "start:server": "node server",
-    "start": "run-p start:server start:client"
+    "start": "node server"
   },
   "author": "Maximilian Mantz",
   "license": "MIT",
