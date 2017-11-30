@@ -5,17 +5,15 @@ import { push } from "react-router-redux";
 import userManager from "../utils/userManager";
 
 class CallbackPage extends React.Component {
-  successCallback() {
-    this.props.dispatch(push("/"));
-  }
-
   render() {
+    console.log("MYPROPS: ", this.props);
+
     // just redirect to '/' in both cases
     return (
       <CallbackComponent
         userManager={userManager}
-        successCallback={this.successCallback}
-        errorCallback={this.successCallback}
+        successCallback={() => this.props.dispatch(push("/"))}
+        errorCallback={() => this.props.dispatch(push("/"))}
       >
         <div>Redirecting...</div>
       </CallbackComponent>
@@ -23,10 +21,4 @@ class CallbackPage extends React.Component {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    dispatch
-  };
-}
-
-export default connect(null, mapDispatchToProps)(CallbackPage);
+export default connect()(CallbackPage);

@@ -10,18 +10,6 @@ class MainPage extends React.Component {
     this.props.dispatch(loadSubscriptionsStart());
   }
 
-  // display the current user
-  showUserInfoButtonClick(event) {
-    event.preventDefault();
-    alert(JSON.stringify(this.props.user, null, 2));
-  }
-
-  // log out
-  onLogoutButtonClicked(event) {
-    event.preventDefault();
-    userManager.removeUser(); // removes the user data from sessionStorage
-  }
-
   // the channels list
   get channels() {
     const { channels } = this.props;
@@ -35,6 +23,9 @@ class MainPage extends React.Component {
       </ul>
     );
   }
+
+  // display the current user
+  showUserInfoButtonClick(event) {}
 
   render() {
     const { user, channels } = this.props;
@@ -50,8 +41,22 @@ class MainPage extends React.Component {
         ) : (
           <i>You have no subscriptions.</i>
         )}
-        <button onClick={this.showUserInfoButtonClick}>Show user info</button>
-        <button onClick={this.onLogoutButtonClicked}>Logout</button>
+        <button
+          onClick={event => {
+            event.preventDefault();
+            alert(JSON.stringify(this.props.user, null, 2));
+          }}
+        >
+          Show user info
+        </button>
+        <button
+          onClick={() => {
+            event.preventDefault();
+            userManager.removeUser(); // removes the user data from sessionStorage
+          }}
+        >
+          Logout
+        </button>
       </div>
     );
   }
@@ -80,10 +85,4 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    dispatch
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(MainPage);
+export default connect(mapStateToProps)(MainPage);

@@ -6,7 +6,8 @@ var HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   devtool: "source-map",
   entry: {
-    app: ["whatwg-fetch", "babel-polyfill", "./src/index.js"],
+    app: ["./src/index.js"],
+    //polyfills: ["whatwg-fetch", "babel-polyfill"],
     silentRenew: ["./silent_renew/index.js"]
   },
   context: path.resolve(__dirname, "."),
@@ -53,15 +54,11 @@ module.exports = {
     ]
   },
   devServer: {
-    https: {
-      key: fs.readFileSync("./key.pem"),
-      cert: fs.readFileSync("./cert.pem")
-      //ca: fs.readFileSync("/path/to/ca.pem")
-    },
+    https: true,
+    hot: false,
     port: 8080,
     host: "localhost",
     stats: "errors-only",
-    inline: true,
     historyApiFallback: true
     // proxy: {
     //   "/callback": { target: "http://localhost:9090", secure: true }
