@@ -55,13 +55,7 @@ module.exports = {
   },
   devServer: {
     https: true,
-    hot: false,
-    port: 8080,
-    host: "localhost",
     stats: "errors-only",
     historyApiFallback: true
-    // proxy: {
-    //   "/callback": { target: "http://localhost:9090", secure: true }
-    // }
   }
 };
