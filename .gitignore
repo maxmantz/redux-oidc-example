@@ -35,3 +35,5 @@ node_modules
 # IntelliJ IDEA
 *.iml
 .idea/
+
+package-lock.json
