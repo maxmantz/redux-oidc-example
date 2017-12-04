@@ -36,4 +36,6 @@ node_modules
 *.iml
 .idea/
 
+# yarn files
 package-lock.json
+yarn.lock
