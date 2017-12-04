@@ -1,8 +1,7 @@
 {
   "name": "redux-oidc-example",
   "version": "1.0.0",
-  "description":
-    "A small example app to demonstrate the features of redux-oidc",
+  "description": "A small example app to demonstrate the features of redux-oidc",
   "main": "dist/redux-oidc-example.js",
   "engines": {
     "node": "8.x.x",
