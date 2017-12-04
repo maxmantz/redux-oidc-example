@@ -1,12 +1,12 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import LoginPage from '../loginPage';
-import MainPage from '../mainPage';
+import React from "react";
+import { connect } from "react-redux";
+import LoginPage from "./loginPage";
+import MainPage from "./mainPage";
 
 function HomePage(props) {
   const { user } = props;
 
-  return !user || user.expired ? <LoginPage/> : <MainPage />;
+  return !user || user.expired ? <LoginPage /> : <MainPage />;
 }
 
 function mapStateToProps(state) {

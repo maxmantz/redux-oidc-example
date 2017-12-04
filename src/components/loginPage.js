@@ -1,11 +1,11 @@
-import React from 'react';
-import userManager from '../../utils/userManager';
+import React from "react";
+import userManager from "../utils/userManager";
 
 class LoginPage extends React.Component {
-  onLoginButtonClick = (event) => {
+  onLoginButtonClick(event) {
     event.preventDefault();
     userManager.signinRedirect();
-  };
+  }
 
   render() {
     return (
@@ -20,12 +20,12 @@ class LoginPage extends React.Component {
 
 const styles = {
   root: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    flexShrink: 1,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-around",
+    alignItems: "center",
+    flexShrink: 1
   }
-}
+};
 
 export default LoginPage;
