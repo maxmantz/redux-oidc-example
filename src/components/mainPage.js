@@ -38,7 +38,7 @@ class MainPage extends React.Component {
       <div style={styles.root}>
         <div style={styles.title}>
           <h3>Welcome, {user ? user.profile.name : "Mister Unknown"}!</h3>
-          <p>Your 5 most recent YouTube channel subscriptions:</p>
+          <p>Here are some of your YouTube channel subscriptions:</p>
         </div>
         {channels.length > 0 ? (
           this.channels
