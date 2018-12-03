@@ -54,7 +54,7 @@ class MainPage extends React.Component {
           Show user info
         </button>
         <button
-          onClick={() => {
+          onClick={event => {
             event.preventDefault();
             userManager.removeUser(); // removes the user data from sessionStorage
           }}
