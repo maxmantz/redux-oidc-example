@@ -10,6 +10,16 @@ Click on `Logout` to log out again.
 
 Visit <https://redux-oidc-example.herokuapp.com/> for the live demo (might take a while to load).
 
+---
+_**Breaking Change:_
+- Replaced Webpack with Vite Bundler
+- In dev mode, the https server should handle both the html files placed outside. (Need to be validated for the slient renew feature)
+- The build works fine, so use the `npm run build` and then `npm run start` to test the application.
+- check the `./src/utils/userManager.js` file for how to create a google auth client id by creating a new project.
+- use test gmail account for using this example
+- Also, see the npm alias in the package.json for how i used the `oidc-client` older js package in place of `oidc-client-ts` as it was not supporting the feature that requires the google auth and youtube api to work. 
+---
+
 ## Usage since redux-oidc v3.0.0-beta.10
 `co` has been removed from the peer dependencies. You don't need it anymore for running this library. You can also safely drop `babel-polyfill` from the silent renew script.
 

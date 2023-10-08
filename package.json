@@ -1,16 +1,16 @@
 {
   "name": "redux-oidc-example",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A small example app to demonstrate the features of redux-oidc",
-  "main": "dist/redux-oidc-example.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rimraf dist && webpack",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server",
+    "build": "rimraf dist && vite build",
+    "dev": "vite dev",
     "prod": "cross-env NODE_ENV=production npm run ./server.js",
     "start": "node server"
   },
-  "author": "Maximilian Mantz",
+  "author": "Yogesh Surendran",
   "license": "MIT",
   "dependencies": {
     "express": "^4.13.4",
