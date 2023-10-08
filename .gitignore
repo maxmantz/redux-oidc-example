@@ -39,3 +39,11 @@ node_modules
 # yarn files
 package-lock.json
 yarn.lock
+dist/index.html
+dist/index.js
+dist/index.js.map
+dist/redux-oidc-4f1d30a1.js
+dist/redux-oidc-4f1d30a1.js.map
+dist/silent_renew.html
+dist/silent_renew.js
+dist/silent_renew.js.map

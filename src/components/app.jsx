@@ -4,7 +4,7 @@ import { OidcProvider } from 'redux-oidc';
 import Routes from '../routes';
 import store from '../store';
 import userManager from '../utils/userManager';
-import Root from '../components/root';
+import Root from './root';
 
 export default function App(props) {
   return (
